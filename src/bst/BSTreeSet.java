@@ -1,5 +1,6 @@
 package bst;
 
+import javax.swing.tree.TreeNode;
 import java.util.*;
 
 /**
@@ -219,6 +220,36 @@ public class BSTreeSet<E> { // BSTreeSet corresponds to the class BST in the boo
             System.out.println(sb);
             queue.clear();
             queue.addAll(children);
+        }
+    }
+
+    //-----------------------------------------------------
+
+    public E max() {
+        TreeNode node = root;
+        while (node.right != null) {
+            node = node.right;
+        }
+        return node.element;
+    }
+
+    public void removeMin() {
+        TreeNode parent = null;
+        TreeNode current = root;
+
+        while (current.left != null) {
+            parent = current;
+            current = current.left;
+        }
+
+        if (parent == null) {
+            root = null;
+        }
+
+        if (current.right != null) {
+            parent.left = current.right;
+        } else {
+            parent.left = null;
         }
     }
 

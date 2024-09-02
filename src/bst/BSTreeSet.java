@@ -167,9 +167,9 @@ public class BSTreeSet<E> { // BSTreeSet corresponds to the class BST in the boo
 
     private int height(TreeNode node) {
         if (node == null) return 0;
-        int heightLeft = 1 + height(node.left);
-        int heightRight = 1 + height(node.right);
-        return Math.max(heightLeft, heightRight);
+        int heightLeft = height(node.left);
+        int heightRight = height(node.right);
+        return Math.max(heightLeft, heightRight) + 1;
     }
 
     //-----------------------------------------------------
